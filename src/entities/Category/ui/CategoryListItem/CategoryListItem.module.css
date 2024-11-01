@@ -1,0 +1,41 @@
+.categoryListItem {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  gap: 10px;
+}
+
+.categoryListItem .button {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.categoryListItem .button:hover {
+  opacity: 0.8;
+}
+
+.listItem {
+  width: 100%;
+  padding-right: 5px;
+  padding-left: 20px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.link {
+  display: inline-block;
+  width: 100%;
+  color: var(--gray);
+}

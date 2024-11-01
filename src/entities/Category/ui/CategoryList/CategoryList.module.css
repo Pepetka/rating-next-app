@@ -1,0 +1,36 @@
+.categoryList {
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: var(--gray);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  gap: 20px;
+}
+
+.active {
+  color: var(--primary);
+}
+
+.list {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-left: 44px;
+  list-style: none;
+  gap: 10px;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  width: 1px;
+  height: 100%;
+  background: #DFDFDF;
+}

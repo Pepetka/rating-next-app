@@ -1,0 +1,21 @@
+.appLink {
+  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
+  text-decoration: none;
+  box-decoration-break: clone;
+}
+
+.appLink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--white),
+    0 0 0 3px var(--primary),
+    0 0 0 4px var(--white);
+}
+
+.appLink:hover {
+  opacity: 0.8;
+}
+
+.appLink:active {
+  transform: scale(0.95);
+}

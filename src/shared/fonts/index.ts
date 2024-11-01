@@ -1,0 +1,1 @@
+export { notoSansKR } from "./font";

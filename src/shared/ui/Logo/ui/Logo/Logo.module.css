@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 160px;
+  color: var(--primary);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 24px;
+}
+
+.name span {
+  margin-right: 4px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+}
