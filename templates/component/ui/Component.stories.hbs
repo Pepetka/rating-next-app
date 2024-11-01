@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { {{name}} } from "./{{name}}";
+import { {{> Name}} } from "./{{> Name}}";
 
 const meta = {
-  title: "{{withUI layer}}/{{name}}",
-  component: {{name}},
+  title: "{{> Path}}/{{> Name}}",
+  component: {{> Name}},
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof {{name}}>;
+} satisfies Meta<typeof {{> Name}}>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

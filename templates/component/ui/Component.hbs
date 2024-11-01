@@ -1,13 +1,13 @@
-import styles from "./{{name}}.module.css";
+import styles from "./{{> Name}}.module.css";
 
-interface {{name}}Props {
+interface {{> Name}}Props {
 
 }
 
-export const {{name}} = (props: {{name}}Props) => {
+export const {{> Name}} = (props: {{> Name}}Props) => {
   const {  } = props;
 
   return (
-    <div data-testid="{{name}}" className={ styles.{{lowerCase name}} }></div>
+    <div data-testid="{{> Name}}" className={ styles.{{> lowerName}} }></div>
   );
 };

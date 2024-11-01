@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import { {{name}} } from "./{{name}}";
+import { {{> Name}} } from "./{{> Name}}";
 
-describe("{{name}}", () => {
+describe("{{> Name}}", () => {
   it("to be in the document", async () => {
-    render(<{{name}} />);
+    render(<{{> Name}} />);
 
-    expect(screen.getByTestId("{{name}}")).toBeInTheDocument();
-    await userEvent.click(screen.getByTestId("{{name}}"));
+    expect(screen.getByTestId("{{> Name}}")).toBeInTheDocument();
+    await userEvent.click(screen.getByTestId("{{> Name}}"));
   });
 });

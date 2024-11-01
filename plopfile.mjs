@@ -5,48 +5,6 @@ const config = (plop) => {
     prompts: [
       {
         type: "input",
-        name: "layer",
-        message: "Layer name",
-      },
-      {
-        type: "input",
-        name: "name",
-        message: "Component name",
-      },
-    ],
-    actions: [
-      {
-        type: "add",
-        path: "src/{{withUI layer}}/{{name}}/ui/{{name}}/{{name}}.tsx",
-        templateFile: "templates/component/ui/Component.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI layer}}/{{name}}/ui/{{name}}/{{name}}.module.css",
-        templateFile: "templates/component/ui/Component.module.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI layer}}/{{name}}/ui/{{name}}/{{name}}.test.tsx",
-        templateFile: "templates/component/ui/Component.test.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI layer}}/{{name}}/ui/{{name}}/{{name}}.stories.tsx",
-        templateFile: "templates/component/ui/Component.stories.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI layer}}/{{name}}/index.ts",
-        templateFile: "templates/component/index.hbs",
-      },
-    ],
-  });
-  plop.setGenerator("add", {
-    description: "Add a component",
-    prompts: [
-      {
-        type: "input",
         name: "path",
         message: "Component path",
       },
@@ -56,43 +14,99 @@ const config = (plop) => {
         message: "Component name",
       },
     ],
-    actions: [
-      {
-        type: "add",
-        path: "src/{{withUI path}}/ui/{{name}}/{{name}}.tsx",
-        templateFile: "templates/component/ui/Component.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI path}}/ui/{{name}}/{{name}}.module.css",
-        templateFile: "templates/component/ui/Component.module.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI path}}/ui/{{name}}/{{name}}.test.tsx",
-        templateFile: "templates/component/ui/Component.test.hbs",
-      },
-      {
-        type: "add",
-        path: "src/{{withUI path}}/ui/{{name}}/{{name}}.stories.tsx",
-        templateFile: "templates/component/ui/ComponentSliced.stories.hbs",
-      },
-    ],
-  });
-  plop.setHelper("withUI", (txt) => {
-    const nodes = txt.split("/");
+    actions: (data) => {
+      const { path } = data;
 
-    const firstNode = nodes[0];
-    if (firstNode === "shared") {
-      nodes[0] = "shared/ui";
+      const capitalizedName = "{{> Name}}";
+      const transformedPath = "{{> Path}}";
+
+      const actions = [];
+
+      const pathArr = path.split("/");
+
+      if (pathArr.length === 1 || path === "shared/ui") {
+        actions.push(
+          {
+            type: "add",
+            path: `src/${transformedPath}/${capitalizedName}/ui/${capitalizedName}/${capitalizedName}.tsx`,
+            templateFile: "templates/component/ui/Component.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/${capitalizedName}/ui/${capitalizedName}/${capitalizedName}.module.css`,
+            templateFile: "templates/component/ui/Component.module.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/${capitalizedName}/ui/${capitalizedName}/${capitalizedName}.test.tsx`,
+            templateFile: "templates/component/ui/Component.test.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/${capitalizedName}/ui/${capitalizedName}/${capitalizedName}.stories.tsx`,
+            templateFile: "templates/component/ui/Component.stories.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/${capitalizedName}/index.ts`,
+            templateFile: "templates/component/index.hbs",
+          },
+        );
+      } else {
+        actions.push(
+          {
+            type: "add",
+            path: `src/${transformedPath}/ui/${capitalizedName}/${capitalizedName}.tsx`,
+            templateFile: "templates/component/ui/Component.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/ui/${capitalizedName}/${capitalizedName}.module.css`,
+            templateFile: "templates/component/ui/Component.module.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/ui/${capitalizedName}/${capitalizedName}.test.tsx`,
+            templateFile: "templates/component/ui/Component.test.hbs",
+          },
+          {
+            type: "add",
+            path: `src/${transformedPath}/ui/${capitalizedName}/${capitalizedName}.stories.tsx`,
+            templateFile: "templates/component/ui/Component.stories.hbs",
+          },
+        );
+      }
+
+      return actions;
+    },
+  });
+  plop.setHelper("transformPath", (txt) => {
+    let nodes = txt.split("/");
+
+    if (nodes[0].toLowerCase() === "shared" && nodes[1]?.toLowerCase() !== "ui") {
+      nodes = ["shared", "ui", ...nodes.slice(1)];
     }
 
-    return nodes.join("/");
+    return nodes
+      .reduce((acc, item, i) => {
+        if (i === 0 || item.toLowerCase() === "ui") {
+          acc.push(item.toLowerCase());
+        } else {
+          acc.push(item.slice(0, 1).toUpperCase() + item.slice(1));
+        }
+        return acc;
+      }, [])
+      .join("/");
   });
-  plop.setHelper("lowerCase", (txt) => {
-    if (!txt) return txt;
+  plop.setHelper("capitalizeFirst", (txt) => {
+    return txt.slice(0, 1).toUpperCase() + txt.slice(1);
+  });
+  plop.setHelper("lowerFirst", (txt) => {
     return txt.slice(0, 1).toLowerCase() + txt.slice(1);
   });
+  plop.setPartial("Name", "{{capitalizeFirst name}}");
+  plop.setPartial("Path", "{{transformPath path}}");
+  plop.setPartial("lowerName", "{{lowerFirst name}}");
 };
 
 export default config;

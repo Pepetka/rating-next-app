@@ -19,7 +19,6 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "gen": "plop component",
-    "gen:add": "plop add",
     "prepare": "husky"
   },
   "dependencies": {
