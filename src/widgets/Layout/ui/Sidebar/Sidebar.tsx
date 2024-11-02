@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import { Category } from "@/entities/Category";
 import searchIcon from "@/shared/assets/icons/search.svg";
 import { classnames } from "@/shared/lib/classnames";
@@ -8,7 +8,7 @@ import styles from "./Sidebar.module.css";
 
 interface SidebarProps extends HTMLAttributes<HTMLElement> {}
 
-export const Sidebar = async (props: SidebarProps) => {
+export const Sidebar = (props: SidebarProps) => {
   const { className, ...rest } = props;
 
   return (

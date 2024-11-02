@@ -4,7 +4,7 @@
     ". header header ." auto
     ". sidebar main ." 1fr
     "footer footer footer footer" auto
-    / auto 230px minmax(320px, 1200px) auto;
+    / minmax(20px, auto) 230px minmax(320px, 1200px) minmax(20px, auto);
   min-height: 100vh;
 }
 

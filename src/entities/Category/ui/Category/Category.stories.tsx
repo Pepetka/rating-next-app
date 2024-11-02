@@ -10,10 +10,10 @@ const categories: CategoryType[] = Array.from({ length: 5 }, (_, index) => ({
     secondCategory: `category ${index}`,
   },
   pages: Array.from({ length: 5 }, (_, i) => ({
-    _id: `${i}`,
-    alias: `page${i}`,
-    title: `Page ${i}`,
-    category: `${i}`,
+    _id: `${index * 5 + i}`,
+    alias: `page${index * 5 + i}`,
+    title: `Page ${index * 5 + i}`,
+    category: `${index * 5 + i}`,
   })),
 }));
 
@@ -37,5 +37,27 @@ export default meta;
 export const Default: Story = {
   args: {
     item: 0,
+  },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/curses/some",
+      },
+    },
+  },
+};
+
+export const Opened: Story = {
+  args: {
+    item: 0,
+  },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/curses/page10",
+      },
+    },
   },
 };

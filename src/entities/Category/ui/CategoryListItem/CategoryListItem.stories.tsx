@@ -7,6 +7,12 @@ const meta = {
   component: CategoryListItem,
   parameters: {
     layout: "centered",
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/category/page1",
+      },
+    },
   },
 } satisfies Meta<typeof CategoryListItem>;
 
@@ -24,6 +30,7 @@ export const Default: Story = {
   args: {
     title: "Category 1",
     pages,
+    categoryPath: "/category1",
   },
 };
 
@@ -31,6 +38,6 @@ export const Opened: Story = {
   args: {
     title: "Category 1",
     pages,
-    initialOpen: true,
+    categoryPath: "/category",
   },
 };

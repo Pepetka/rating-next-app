@@ -20,10 +20,10 @@ const categories: CategoryType[] = Array.from({ length: 5 }, (_, index) => ({
     secondCategory: `category ${index}`,
   },
   pages: Array.from({ length: 5 }, (_, i) => ({
-    _id: `${i}`,
-    alias: `page${i}`,
-    title: `Page ${i}`,
-    category: `${i}`,
+    _id: `${index * 5 + i}`,
+    alias: `page${index * 5 + i}`,
+    title: `Page ${index * 5 + i}`,
+    category: `${index * 5 + i}`,
   })),
 }));
 
@@ -33,6 +33,50 @@ export const Default: Story = {
     title: "Categories",
     icon: bookIcon,
     activeIcon: bookPrimaryIcon,
-    path: "/",
+    path: "/category",
+  },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/category/some",
+      },
+    },
+  },
+};
+
+export const Opened: Story = {
+  args: {
+    categories,
+    title: "Categories",
+    icon: bookIcon,
+    activeIcon: bookPrimaryIcon,
+    path: "/category",
+  },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/category/page1",
+      },
+    },
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    categories: [],
+    title: "Categories",
+    icon: bookIcon,
+    activeIcon: bookPrimaryIcon,
+    path: "/category1",
+  },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: "/category/page1",
+      },
+    },
   },
 };

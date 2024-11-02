@@ -39,3 +39,7 @@
   width: 100%;
   color: var(--gray);
 }
+
+.active {
+  color: var(--primary);
+}

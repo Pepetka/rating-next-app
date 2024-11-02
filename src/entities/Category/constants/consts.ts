@@ -7,30 +7,36 @@ import cloudIcon from "@/shared/assets/icons/cloud/cloud.svg";
 import hatPrimaryIcon from "@/shared/assets/icons/hat/hat-primary.svg";
 import hatIcon from "@/shared/assets/icons/hat/hat.svg";
 
-export const MAIN_CATEGORIES: { title: string; icon: string; activeIcon: string; path: string }[] =
-  [
-    {
-      title: "Курсы",
-      icon: hatIcon,
-      activeIcon: hatPrimaryIcon,
-      path: "/",
-    },
-    {
-      title: "Сервисы",
-      icon: cloudIcon,
-      activeIcon: cloudPrimaryIcon,
-      path: "/services",
-    },
-    {
-      title: "Курсы",
-      icon: bookIcon,
-      activeIcon: bookPrimaryIcon,
-      path: "/curses",
-    },
-    {
-      title: "Товары",
-      icon: boxIcon,
-      activeIcon: boxPrimaryIcon,
-      path: "/goods",
-    },
-  ];
+interface MainCategory {
+  title: string;
+  icon: string;
+  activeIcon: string;
+  path: string;
+}
+
+export const MAIN_CATEGORIES: MainCategory[] = [
+  {
+    title: "Курсы",
+    icon: hatIcon,
+    activeIcon: hatPrimaryIcon,
+    path: "curses",
+  },
+  {
+    title: "Сервисы",
+    icon: cloudIcon,
+    activeIcon: cloudPrimaryIcon,
+    path: "services",
+  },
+  {
+    title: "Книги",
+    icon: bookIcon,
+    activeIcon: bookPrimaryIcon,
+    path: "books",
+  },
+  {
+    title: "Товары",
+    icon: boxIcon,
+    activeIcon: boxPrimaryIcon,
+    path: "goods",
+  },
+];

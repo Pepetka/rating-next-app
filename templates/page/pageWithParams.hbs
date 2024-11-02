@@ -1,0 +1,15 @@
+interface PageProps {
+  params: { {{> pathParams}} };
+}
+
+export const generateStaticParams = (): PageProps["params"][] => {
+  return [];
+};
+
+const Page = (props: PageProps) => {
+  const { params } = props;
+
+  return <div></div>;
+};
+
+export default Page;

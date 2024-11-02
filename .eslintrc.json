@@ -64,7 +64,15 @@
     }],
     "@typescript-eslint/no-empty-object-type": ["error", {
       "allowInterfaces": "with-single-extends"
-    }]
+    }],
+    "import/no-internal-modules": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
   },
   "extends": [
     "next/core-web-vitals",
@@ -75,6 +83,7 @@
     "plugin:import/recommended",
     "prettier",
     "plugin:storybook/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "@feature-sliced"
   ]
 }

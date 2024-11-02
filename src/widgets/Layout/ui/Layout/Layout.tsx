@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { Footer } from "@/shared/ui/Footer";
-import { Header } from "@/shared/ui/Header";
-import { Sidebar } from "@/shared/ui/Sidebar";
+import { Footer } from "../Footer/Footer";
+import { Header } from "../Header/Header";
+import { Sidebar } from "../Sidebar/Sidebar";
 import styles from "./Layout.module.css";
 
 interface LayoutProps {
