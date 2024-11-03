@@ -1,4 +1,3 @@
-// @ts-ignore
 import { transformPath } from "./helpers/transformPath";
 import { capitalizeFirst } from "./helpers/capitalizeFirst";
 import { lowerFirst } from "./helpers/lowerFirst";
