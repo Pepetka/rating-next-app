@@ -11,7 +11,7 @@ const config: Config = {
   ci: !!process.env.CI,
   rootDir: "./",
   testMatch: ["<rootDir>/src/**/*.test.ts?(x)"],
-  setupFilesAfterEnv: ["<rootDir>/jest/jest.setup.ts"],
+  setupFilesAfterEnv: ["<rootDir>/.jest/jest.setup.ts"],
   reporters: [
     "default",
     [

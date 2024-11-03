@@ -24,6 +24,8 @@ export const generateStaticParams = async (): Promise<PageProps["params"][]> => 
   return params;
 };
 
+export const dynamicParams = false;
+
 const Page = (props: PageProps) => {
   const { params } = props;
 

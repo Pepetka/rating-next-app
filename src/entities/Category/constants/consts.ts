@@ -19,7 +19,7 @@ export const MAIN_CATEGORIES: MainCategory[] = [
     title: "Курсы",
     icon: hatIcon,
     activeIcon: hatPrimaryIcon,
-    path: "curses",
+    path: "courses",
   },
   {
     title: "Сервисы",

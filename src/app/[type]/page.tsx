@@ -10,6 +10,8 @@ export const generateStaticParams = (): PageProps["params"][] => {
   }));
 };
 
+export const dynamicParams = false;
+
 const Page = (props: PageProps) => {
   const { params } = props;
 

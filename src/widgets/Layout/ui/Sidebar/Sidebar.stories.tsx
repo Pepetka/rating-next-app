@@ -30,7 +30,7 @@ const meta = {
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: "/curses/page1",
+        pathname: "/courses/page1",
       },
     },
   },

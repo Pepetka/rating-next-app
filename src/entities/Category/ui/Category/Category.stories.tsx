@@ -42,7 +42,7 @@ export const Default: Story = {
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: "/curses/some",
+        pathname: "/courses/some",
       },
     },
   },
@@ -56,7 +56,7 @@ export const Opened: Story = {
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: "/curses/page10",
+        pathname: "/courses/page10",
       },
     },
   },

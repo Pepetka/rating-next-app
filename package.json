@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "debug": "cross-env NODE_OPTIONS=\"--inspect\" next dev",
     "build": "next build",
     "start": "next start",
     "lint:ts": "next lint",
@@ -18,9 +18,9 @@
     "test:unit:watch": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "gen": "plop component",
-    "gen:page": "plop page",
-    "gen:lib": "plop lib",
+    "gen": "cross-env NODE_OPTIONS=\"--import tsx\" plop component --plopfile=plopfile.ts",
+    "gen:page": "cross-env NODE_OPTIONS=\"--import tsx\" plop page --plopfile=plopfile.ts",
+    "gen:lib": "cross-env NODE_OPTIONS=\"--import tsx\" plop lib --plopfile=plopfile.ts",
     "prepare": "husky"
   },
   "dependencies": {
@@ -73,6 +73,7 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   },
   "lint-staged": {
@@ -83,5 +84,9 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "engines" : {
+    "pnpm" : "9.12.1",
+    "node" : "20.12.1"
   }
 }

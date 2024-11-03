@@ -45,6 +45,6 @@
   }
 
   .main {
-    margin-left: 0;
+    padding-inline: 30px;
   }
 }
