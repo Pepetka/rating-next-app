@@ -21,12 +21,15 @@
     "gen": "cross-env NODE_OPTIONS=\"--import tsx\" plop component --plopfile=plopfile.ts",
     "gen:page": "cross-env NODE_OPTIONS=\"--import tsx\" plop page --plopfile=plopfile.ts",
     "gen:lib": "cross-env NODE_OPTIONS=\"--import tsx\" plop lib --plopfile=plopfile.ts",
+    "clean": "rimraf .next storybook-static",
+    "clean:deps": "rimraf node_modules pnpm-lock.yaml",
     "prepare": "husky"
   },
   "dependencies": {
     "next": "14.2.16",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@feature-sliced/eslint-config": "^0.1.1",
@@ -67,6 +70,7 @@
     "msw-storybook-addon": "^2.0.3",
     "plop": "^4.0.1",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "storybook": "^8.4.1",
     "stylelint": "^16.10.0",
     "stylelint-config-property-sort-order-smacss": "^10.0.0",
@@ -85,8 +89,8 @@
       "public"
     ]
   },
-  "engines" : {
-    "pnpm" : "9.12.1",
-    "node" : "20.12.1"
+  "engines": {
+    "pnpm": "9.12.1",
+    "node": "20.12.1"
   }
 }

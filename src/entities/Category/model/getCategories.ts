@@ -1,4 +1,4 @@
-import type { CategoryType } from "../types/types";
+import { CategoriesSchema, CategoryType } from "../types/types";
 
 export const getCategories = async (firstCategory: number): Promise<CategoryType[]> => {
   const res = await fetch(process.env.NEXT_PUBLIC_API + "/top-page/find", {
@@ -6,5 +6,14 @@ export const getCategories = async (firstCategory: number): Promise<CategoryType
     body: JSON.stringify({ firstCategory }),
     headers: new Headers({ "content-type": "application/json" }),
   });
-  return res.json();
+
+  const data = await res.json();
+
+  const parsedData = CategoriesSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    throw new Error("Failed to parse data: ", parsedData.error);
+  }
+
+  return data;
 };
