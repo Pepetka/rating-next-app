@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { getStyleDecorator } from "@/shared/test/decorators";
 import { Paragraph } from "./Paragraph";
 
@@ -9,7 +10,10 @@ const meta = {
     layout: "centered",
   },
   decorators: [getStyleDecorator({ maxWidth: "500px", padding: "20px" })],
-} satisfies Meta<typeof Paragraph>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Paragraph>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -11,5 +11,9 @@ export const Heading = (props: HeadingProps) => {
 
   const TagName = tag;
 
-  return <TagName className={styles.title}>{children}</TagName>;
+  return (
+    <TagName data-testid="Heading" className={styles.title}>
+      {children}
+    </TagName>
+  );
 };

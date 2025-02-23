@@ -1,9 +1,9 @@
 import type { Preview } from "@storybook/react";
-import { FontsDecorator } from "../src/shared/test/decorators";
-import { initialize, mswLoader } from 'msw-storybook-addon'
+import { FontsDecorator, VisualDecorator } from "../src/shared/test/decorators";
+import { initialize, mswLoader } from "msw-storybook-addon";
 import "../src/app/globals.css";
 
-initialize({ onUnhandledRequest: 'warn' });
+initialize({ onUnhandledRequest: "warn" });
 
 const preview: Preview = {
   parameters: {
@@ -14,9 +14,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
-    FontsDecorator,
-  ],
+  decorators: [FontsDecorator, VisualDecorator],
   loaders: [mswLoader],
   tags: ["autodocs"],
 };

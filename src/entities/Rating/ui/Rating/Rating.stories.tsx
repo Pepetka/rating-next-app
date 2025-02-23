@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { Rating } from "./Rating";
 
 const meta = {
@@ -13,7 +14,10 @@ const meta = {
       options: [1, 2, 3, 4, 5],
     },
   },
-} satisfies Meta<typeof Rating>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Rating>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

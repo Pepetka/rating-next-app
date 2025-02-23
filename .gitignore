@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 /.idea/
+/.vscode/*
 
 # dependencies
 /node_modules
@@ -12,6 +13,12 @@
 /coverage
 /reports
 /storybook-static
+/mochawesome-report/
+/cypress/snapshots/actual
+/cypress/screenshots
+/cypress-image-diff-html-report
+/.testplane
+/testplane-report
 
 # next.js
 /.next/
@@ -41,3 +48,10 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

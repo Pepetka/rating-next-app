@@ -7,6 +7,10 @@ export const getCategories = async (firstCategory: number): Promise<CategoryType
     headers: new Headers({ "content-type": "application/json" }),
   });
 
+  if (!res.ok) {
+    return [];
+  }
+
   const data = await res.json();
 
   const parsedData = CategoriesSchema.safeParse(data);

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { Tag } from "./Tag";
 
 const meta = {
@@ -17,7 +18,10 @@ const meta = {
       control: { type: "radio" },
     },
   },
-} satisfies Meta<typeof Tag>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Tag>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

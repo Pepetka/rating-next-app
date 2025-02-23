@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { http, HttpResponse } from "msw";
 import type { CategoryType } from "@/entities/Category";
 import { Layout } from "./Layout";
@@ -34,7 +35,10 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Layout>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Layout>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

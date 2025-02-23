@@ -13,7 +13,7 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <AppLink
-      data-testid="logo"
+      data-testid="Logo"
       href={href}
       className={classnames(styles.logo, className)}
       {...rest}

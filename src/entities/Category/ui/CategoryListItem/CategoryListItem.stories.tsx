@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { CategoryType } from "@/entities/Category";
 import { CategoryListItem } from "./CategoryListItem";
 
@@ -14,7 +15,10 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof CategoryListItem>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof CategoryListItem>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

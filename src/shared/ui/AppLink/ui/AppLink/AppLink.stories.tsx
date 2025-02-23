@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { AppLink } from "./AppLink";
 
 const meta = {
@@ -7,7 +8,10 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof AppLink>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof AppLink>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

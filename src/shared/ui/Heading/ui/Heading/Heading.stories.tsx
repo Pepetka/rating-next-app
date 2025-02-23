@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import { Heading } from "./Heading";
 
 const meta = {
@@ -7,7 +8,10 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Heading>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Heading>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

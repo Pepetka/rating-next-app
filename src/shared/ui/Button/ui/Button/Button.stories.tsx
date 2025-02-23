@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WithTestplane } from "@testplane/storybook";
 import topIcon from "@/shared/assets/icons/arrow/arrow-white.svg";
 import arrowIcon from "@/shared/assets/icons/arrow/arrow.svg";
 import navIcon from "@/shared/assets/icons/nav.svg";
@@ -25,7 +26,10 @@ const meta = {
       options: ["primary", "secondary", "clear"],
     },
   },
-} satisfies Meta<typeof Button>;
+  testplane: {
+    autoscreenshotSelector: "[data-testid='story-wrapper']",
+  },
+} satisfies WithTestplane<Meta<typeof Button>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
